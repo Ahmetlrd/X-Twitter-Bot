@@ -1,36 +1,60 @@
-# X(Twitter) Bot
+# X (Twitter) News Bot
 
-An AI-powered X bot built with Python and OpenAI GPT-4o. It connects to the X (Twitter) API and intelligently generates tweets.
+A Python-based automated X (Twitter) bot that monitors a Turkish news RSS feed, summarizes recent articles using OpenAI GPT-4o, and posts concise, neutral news tweets on an hourly basis.
 
 ## Description
 
-This project combines the X API (via `tweepy`) with OpenAI's GPT-4o model to automate natural and engaging social media interactions.
+This project is an automated news bot designed to share short, readable summaries of current news. It periodically fetches articles from a Turkish RSS feed, selects one item published within the previous hour, and uses OpenAI GPT-4o to generate a brief, neutral Turkish summary suitable for social media. The bot then formats and posts the result directly to X (Twitter).
 
-Key capabilities include:
-- Posting AI-generated tweets based on prompts
-- Customizable logic for content filtering and timing
+The system focuses on timing accuracy, language correctness, and political neutrality rather than engagement optimization.
 
+## How It Works
+
+1. Fetches news items from a predefined RSS feed  
+2. Filters articles published in the previous hour (local time)  
+3. Randomly selects one eligible news item  
+4. Sends the article link (or RSS description fallback) to GPT-4o  
+5. Receives a strictly formatted JSON response (title and summary)  
+6. Cleans, validates, and formats the content  
+7. Posts the tweet automatically via the X API  
 
 ## Features
 
-- Uses OpenAI GPT-4o for natural language generation
-- Automated tweeting
-- Easily configurable prompt structure
-- Modular Python code for quick customization
+- Hourly automated posting  
+- RSS-based news monitoring  
+- Turkish language–focused summarization  
+- Neutral and non-opinionated output  
+- Strict JSON parsing and validation  
+- Automatic tweet length control (280 characters)  
+- Built-in rate limit handling and retry logic  
+- Timezone-aware scheduling (Europe/Istanbul)  
+
+## Technologies Used
+
+- Python  
+- OpenAI GPT-4o  
+- Tweepy (X API v2)  
+- Requests  
+- BeautifulSoup  
 
 ## Prerequisites
 
-- Python 3.11
-- Access to OpenAI API (GPT-4o)
-- X Developer account with API keys
+- Python 3.11 or higher  
+- OpenAI API access  
+- X (Twitter) Developer account with write access  
 
-## Customization
+## Configuration
 
-- You can edit the prompt structure in `code.py`
-- All replies and tweets are generated via GPT-4o and are context-aware.
-- Scheduler and filtering logic can be adapted for specific use cases.
+- RSS source can be changed via `RSS_URL`  
+- Posting hours and timing logic can be adjusted in `run_hourly`  
+- GPT prompt structure and constraints are fully customizable  
+- Tweet format can be modified in the output section  
+
+## Notes
+
+This bot is designed for informational sharing only. It does not reply to users, track engagement metrics, or perform sentiment analysis. Once started, it runs fully autonomously.
 
 ## Visual Overview
 
 ![Main Panel](PNG/X-BOT_0.png)
-![Summary Reply](PNG/X-BOT_1.png)
+![Summary Output](PNG/X-BOT_1.png)
