@@ -1,6 +1,6 @@
 # X(Twitter) Bot
 
-An AI-powered X bot built with Python and OpenAI GPT-4o. It connects to the X (Twitter) API and intelligently generates tweets and replies using state-of-the-art language understanding.
+An AI-powered X bot built with Python and OpenAI GPT-4o. It connects to the X (Twitter) API and intelligently generates tweets.
 
 ## Description
 
